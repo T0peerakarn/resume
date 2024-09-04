@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 
-import { Card, Container, Grid, Stack, Typography } from "@mui/material";
+import { Card, Container, Grid, Stack, useMediaQuery } from "@mui/material";
 
 import MenuBar from "../components/MenuBar";
 import AboutMe from "../components/AboutMe";
 import Experiences from "../components/Experiences";
 import Awards from "../components/Awards";
 
-import { isLaptop } from "@/utils/global";
-
 const HomePage = () => {
   const [currentMenu, setCurrentMenu] = useState<string>("About me");
+
+  const isLaptop = useMediaQuery("(min-width:1024px)");
 
   const render = () => {
     switch (currentMenu) {
@@ -25,7 +25,7 @@ const HomePage = () => {
     }
   };
 
-  return isLaptop() ? (
+  return isLaptop ? (
     <Container sx={{ p: 4 }}>
       <Grid container columns={4} columnSpacing={4} sx={{ width: "full" }}>
         <Grid item xs={1}>

@@ -7,7 +7,7 @@ import { awards, IAward } from "@/constants/award";
 
 const Awards = () => {
   return (
-    <>
+    <Stack gap={8}>
       <CardList title="Award" columns={2}>
         {awards
           .sort((a, b) => b.id - a.id)
@@ -15,7 +15,7 @@ const Awards = () => {
             <StyledCard_Modal key={award.id} {...award} />
           ))}
       </CardList>
-    </>
+    </Stack>
   );
 };
 

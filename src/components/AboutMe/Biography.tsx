@@ -1,24 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { Grid, Stack, Typography } from "@mui/material";
+import { Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 
 import { contacts, IContact } from "@/constants/contact";
 import profile from "@/assets/images/profile.jpg";
 
-import { isTablet } from "@/utils/global";
-
 const Biography = () => {
+  const isTablet = useMediaQuery("(min-width:768px)");
+
   return (
-    <Grid
-      container
-      columns={isTablet() ? 5 : 3}
-      columnSpacing={4}
-      rowSpacing={4}
-    >
+    <Grid container columns={isTablet ? 5 : 3} columnSpacing={4} rowSpacing={4}>
       <Grid
         item
-        xs={isTablet() ? 2 : 3}
+        xs={isTablet ? 2 : 3}
         sx={{ display: "flex", justifyContent: "center" }}
       >
         <Image
@@ -27,7 +22,7 @@ const Biography = () => {
           width={0}
           height={0}
           sizes="100vw"
-          className={`${isTablet() ? "w-full" : "w-2/3"} rounded-lg`}
+          className={`${isTablet ? "w-full" : "w-2/3"} rounded-lg`}
           unoptimized
         />
       </Grid>
@@ -47,7 +42,7 @@ const Biography = () => {
             align="center"
             sx={{
               fontWeight: "bold",
-              fontSize: isTablet() ? "1.75em" : "1.5em",
+              fontSize: isTablet ? "1.75em" : "1.5em",
               color: "#666666",
             }}
           >
@@ -59,7 +54,7 @@ const Biography = () => {
           </Typography>
 
           <Stack
-            spacing={isTablet() ? 8 : 4}
+            spacing={isTablet ? 8 : 4}
             direction="row"
             justifyContent="center"
             sx={{ width: "full" }}
