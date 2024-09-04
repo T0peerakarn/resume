@@ -23,7 +23,12 @@ const CardList = (props: Props) => {
       >
         {props.title}
       </Typography>
-      <Grid container columns={isTablet ? props.columns : 1} spacing={2}>
+      <Grid
+        container
+        columns={isTablet ? props.columns : 1}
+        spacing={isTablet ? 2 : 0}
+        gap={isTablet ? 0 : 2}
+      >
         {props.children}
       </Grid>
     </Stack>
