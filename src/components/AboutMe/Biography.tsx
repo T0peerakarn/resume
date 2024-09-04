@@ -55,7 +55,7 @@ const Biography = () => {
           </Typography>
 
           <Typography align="center" sx={{ color: "#666666" }}>
-            " a data science student with some dev skills "
+            &quot; a data science student with some dev skills &quot;
           </Typography>
 
           <Stack
