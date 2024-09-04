@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
+import { Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 
 interface Props {
   title: string;
@@ -11,7 +11,7 @@ const CardList = (props: Props) => {
   const isTablet = useMediaQuery("(min-width:768px)");
 
   return (
-    <Box>
+    <Stack spacing={2}>
       <Typography
         sx={{
           color: "#666666",
@@ -26,7 +26,7 @@ const CardList = (props: Props) => {
       <Grid container columns={isTablet ? props.columns : 1} spacing={2}>
         {props.children}
       </Grid>
-    </Box>
+    </Stack>
   );
 };
 
