@@ -8,6 +8,7 @@ interface Props {
 
 const CardList = (props: Props) => {
   const isLaptop = useMediaQuery("(min-width:1024px)");
+  const isTablet = useMediaQuery("(min-width:768px)");
 
   return (
     <Box>
@@ -22,7 +23,7 @@ const CardList = (props: Props) => {
       >
         {props.title}
       </Typography>
-      <Grid container columns={isLaptop ? props.columns : 1} spacing={2}>
+      <Grid container columns={isTablet ? props.columns : 1} spacing={2}>
         {props.children}
       </Grid>
     </Box>
