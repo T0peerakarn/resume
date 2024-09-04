@@ -1,7 +1,14 @@
 import { ReactNode } from "react";
 import { IoClose } from "react-icons/io5";
 
-import { Box, Card, Divider, Modal, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  Divider,
+  Modal,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
 interface IStyledModal {
   isOpen: boolean;
@@ -16,6 +23,8 @@ const StyledModal = ({
   title,
   children,
 }: IStyledModal) => {
+  const isTablet = useMediaQuery("(min-width:768px)");
+
   return (
     <Modal open={isOpen} onClose={handleClose}>
       <Card
@@ -23,7 +32,7 @@ const StyledModal = ({
           position: "absolute",
           top: "50%",
           left: "50%",
-          width: "50%",
+          width: isTablet ? "50%" : "100%",
           transform: "translate(-50%, -50%)",
           p: 2,
         }}
