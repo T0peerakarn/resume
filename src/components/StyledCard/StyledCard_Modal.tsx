@@ -24,6 +24,7 @@ const StyledCard_Modal = ({
       <Grid item xs={1}>
         <Card
           sx={{
+            m: 1,
             px: 1,
             py: 2,
             display: "flex",

@@ -19,6 +19,7 @@ const StyledCard_Link = ({
     <Link href={link} target="blank">
       <Card
         sx={{
+          m: 1,
           px: 1,
           py: 2,
           display: "flex",
