@@ -63,6 +63,15 @@ export const projects: IProject[] = [
     link: "https://github.com/T0peerakarn/modified-pong",
   },
   {
+    id: 7,
+    title: "Modified Breakout Game",
+    position: "Programmer",
+    year: "2024",
+    description:
+      "Implemented extra features to enhance user experience of the player using Pygame.",
+    link: "https://github.com/T0peerakarn/modified-breakout",
+  },
+  {
     id: 999,
     title: "OrcaHub",
     position: "Fullstack Developer",
