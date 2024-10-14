@@ -5,11 +5,12 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material";
+
 import { menus, IMenu } from "@/constants/menu";
 
 interface Props {
-  currentMenu: string;
-  setCurrentMenu: (newMenu: string) => void;
+  currentMenu: number;
+  setCurrentMenu: (newMenu: number) => void;
 }
 
 const MenuBar: React.FC<Props> = (props) => {
@@ -22,7 +23,7 @@ const MenuBar: React.FC<Props> = (props) => {
         {menus.map((menu: IMenu) => (
           <ListItem key={menu.id} disablePadding>
             <ListItemButton
-              onClick={() => props.setCurrentMenu(menu.title)}
+              onClick={() => props.setCurrentMenu(menu.id)}
               sx={{ transition: "color" }}
               className="hover:bg-[#FDCEDF]"
             >
@@ -30,7 +31,7 @@ const MenuBar: React.FC<Props> = (props) => {
                 primary={menu.title}
                 primaryTypographyProps={{ fontWeight: "bold", align: "center" }}
                 className={
-                  props.currentMenu === menu.title
+                  props.currentMenu === menu.id
                     ? "text-[#FF8E9E]"
                     : "text-[#666666]"
                 }

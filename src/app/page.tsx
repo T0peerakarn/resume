@@ -5,24 +5,17 @@ import { useState } from "react";
 import { Card, Container, Grid, Stack, useMediaQuery } from "@mui/material";
 
 import MenuBar from "../components/MenuBar";
-import AboutMe from "../components/AboutMe";
-import Experiences from "../components/Experiences";
-import Awards from "../components/Awards";
+
+import { menus, IMenu } from "@/constants/menu";
 
 const HomePage = () => {
-  const [currentMenu, setCurrentMenu] = useState<string>("About me");
+  const [currentMenu, setCurrentMenu] = useState<number>(1);
 
   const isLaptop = useMediaQuery("(min-width:1024px)");
 
-  const render = () => {
-    switch (currentMenu) {
-      case "About me":
-        return <AboutMe />;
-      case "Experiences":
-        return <Experiences />;
-      case "Awards":
-        return <Awards />;
-    }
+  const renderComponent = () => {
+    const menu = menus.find((menu: IMenu) => menu.id === currentMenu)!;
+    return <menu.component />;
   };
 
   return isLaptop ? (
@@ -31,7 +24,7 @@ const HomePage = () => {
         <Grid item xs={1}>
           <MenuBar
             currentMenu={currentMenu}
-            setCurrentMenu={(newMenu: string) => setCurrentMenu(newMenu)}
+            setCurrentMenu={(newMenu: number) => setCurrentMenu(newMenu)}
           />
         </Grid>
 
@@ -40,16 +33,16 @@ const HomePage = () => {
             sx={{ p: 4, backgroundColor: "#F9F5F6" }}
             className="rounded-lg"
           >
-            {render()}
+            {renderComponent()}
           </Card>
         </Grid>
       </Grid>
     </Container>
   ) : (
     <Stack sx={{ p: 4 }} spacing={8}>
-      <AboutMe />
-      <Experiences />
-      <Awards />
+      {menus.map((menu: IMenu) => (
+        <menu.component key={menu.id} />
+      ))}
     </Stack>
   );
 };
