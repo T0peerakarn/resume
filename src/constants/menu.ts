@@ -6,6 +6,7 @@ export interface IMenu {
   id: number;
   title: string;
   component: () => JSX.Element;
+  isLanding?: boolean;
 }
 
 export const menus: IMenu[] = [
@@ -13,6 +14,7 @@ export const menus: IMenu[] = [
     id: 1,
     title: "About me",
     component: AboutMe,
+    isLanding: true,
   },
   {
     id: 2,

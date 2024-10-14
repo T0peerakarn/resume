@@ -1,15 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Card, Container, Grid, Stack, useMediaQuery } from "@mui/material";
 
+import Loading from "@/components/Loading";
 import MenuBar from "../components/MenuBar";
 
 import { menus, IMenu } from "@/constants/menu";
 
 const HomePage = () => {
-  const [currentMenu, setCurrentMenu] = useState<number>(1);
+  const [currentMenu, setCurrentMenu] = useState<number>(
+    menus.find((menu: IMenu) => menu.isLanding)!.id
+  );
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const isLaptop = useMediaQuery("(min-width:1024px)");
 
@@ -18,7 +22,16 @@ const HomePage = () => {
     return <menu.component />;
   };
 
-  return isLaptop ? (
+  useEffect(() => {
+    const timer = setInterval(() => setIsLoading(false), 1000);
+    return () => clearInterval(timer);
+  }, [isLaptop]);
+
+  return isLoading ? (
+    <Container sx={{ width: "400px" }}>
+      <Loading />
+    </Container>
+  ) : isLaptop ? (
     <Container sx={{ p: 4 }}>
       <Grid container columns={4} columnSpacing={4} sx={{ width: "full" }}>
         <Grid item xs={1}>
