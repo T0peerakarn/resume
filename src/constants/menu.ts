@@ -1,6 +1,7 @@
 import AboutMe from "@/components/AboutMe";
 import Awards from "@/components/Awards";
 import Experiences from "@/components/Experiences";
+import Gallery from "@/components/Gallery";
 
 export interface IMenu {
   id: number;
@@ -25,5 +26,10 @@ export const menus: IMenu[] = [
     id: 3,
     title: "Awards",
     component: Awards,
+  },
+  {
+    id: 4,
+    title: "Gallery",
+    component: Gallery,
   },
 ];
