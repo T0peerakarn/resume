@@ -39,6 +39,7 @@ const StyledImage = ({
         }}
         className={`transition-all ${isHover && "opacity-10"}`}
         onLoad={() => setIsLoaded(true)}
+        unoptimized
       />
       <Box
         sx={{
