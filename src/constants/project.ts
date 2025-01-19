@@ -54,12 +54,21 @@ export const projects: IProject[] = [
     link: "https://github.com/T0peerakarn/des431-recommendation-system",
   },
   {
-    id: 999,
+    id: 6,
     title: "OrcaHub",
     position: "Fullstack Developer",
-    year: "Ongoing",
+    year: "2024",
     description:
-      "An event management system, built with Next.js, TypeScript, TailwindCSS, Prisma, and Supabase.",
+      "An (internal) event management system, built with Next.js, TypeScript, TailwindCSS, Prisma, and Supabase.",
     link: "https://orcahub-v01.vercel.app/",
+  },
+  {
+    id: 7,
+    title: "NTN Sentimental Analyzer",
+    position: "Fullstack Developer",
+    year: "2024",
+    description:
+      "A web application designed to interpret the sentiment of user-provided text whether it is positive, negative, or neutral.",
+    link: "https://sentiment-analysis-project-two.vercel.app/",
   },
 ];
